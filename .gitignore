@@ -1,0 +1,22 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Maven
+target/
+*.class
+
+# macOS
+.DS_Store
+
+# Node.js / React
+node_modules/
+dist/
+build/
+
+# Environment variables
+.env
+application-local.properties
+
+# Logs
+*.log
