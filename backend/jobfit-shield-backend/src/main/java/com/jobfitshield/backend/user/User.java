@@ -36,6 +36,39 @@ public class User {
     @Column(nullable = false, length = 20)
     private Role role = Role.USER;
 
+    @Column(length = 150)
+    private String university;
+
+    @Column(length = 150)
+    private String degree;
+
+    @Column(name = "graduation_year")
+    private Integer graduationYear;
+
+    @Column(length = 100)
+    private String location;
+
+    @Column(name = "github_url", length = 255)
+    private String githubUrl;
+
+    @Column(name = "linkedin_url", length = 255)
+    private String linkedinUrl;
+
+    @Column(name = "portfolio_url", length = 255)
+    private String portfolioUrl;
+
+    @Column(length = 1000)
+    private String bio;
+
+    @Column(length = 2000)
+    private String skills;
+
+    @Column(length = 3000)
+    private String experience;
+
+    @Column(name = "resume_url", length = 500)
+    private String resumeUrl;
+
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
@@ -44,9 +77,8 @@ public class User {
 
     @PrePersist
     protected void onCreate() {
-        LocalDateTime now = LocalDateTime.now();
-        createdAt = now;
-        updatedAt = now;
+        createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
     }
 
     @PreUpdate
