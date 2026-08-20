@@ -6,6 +6,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/api/resume")
@@ -22,6 +23,17 @@ public class ResumeController {
         return resumeService.saveOrUpdateResume(
                 authentication.getName(),
                 request
+        );
+    }
+
+    @PostMapping("/upload")
+    public ResumeResponse uploadResume(
+            Authentication authentication,
+            @RequestParam("file") MultipartFile file
+    ) {
+        return resumeService.uploadPdf(
+                authentication.getName(),
+                file
         );
     }
 
