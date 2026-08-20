@@ -8,6 +8,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/resume")
 @RequiredArgsConstructor
@@ -42,6 +44,15 @@ public class ResumeController {
             Authentication authentication
     ) {
         return resumeService.getResume(
+                authentication.getName()
+        );
+    }
+
+    @GetMapping("/skills")
+    public List<String> getResumeSkills(
+            Authentication authentication
+    ) {
+        return resumeService.extractResumeSkills(
                 authentication.getName()
         );
     }
